@@ -4,15 +4,13 @@ var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
 var hashHistory = ReactRouter.hashHistory;
-var Main = require('../components/Main');
-var Home = require('../components/Home');
-var Prompt = require('../components/Prompt');
+var Main = require('../containers/Main');
+var HomeContainer = require('../containers/HomeContainer');
 
 var routes = (
     <Router history={hashHistory}>
         <Route path='/' component={Main}>
-            <IndexRoute component={Home} />
-            <Route path='selectCity' component={Prompt} />
+            <IndexRoute component={HomeContainer} />
         </Route>
     </Router>
 );
