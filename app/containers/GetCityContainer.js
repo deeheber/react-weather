@@ -1,5 +1,7 @@
 var React = require('react');
 var GetCity = require('../components/GetCity');
+//var getCurrentWeather = require('../utils/api').getCurrentWeather;
+var getForecast = require('../utils/api').getForecast;
 
 var GetCityContainer = React.createClass({
     getInitialState: function(){
@@ -15,6 +17,8 @@ var GetCityContainer = React.createClass({
     handleSubmitCity: function(e){
         e.preventDefault();
         console.log(this.state.city);
+        //getCurrentWeather(this.state.city);
+        getForecast(this.state.city);
         //TODO later
             //empty out input
             //redirect to forecast component
