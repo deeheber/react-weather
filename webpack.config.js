@@ -3,7 +3,8 @@ var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     template: __dirname + '/app/index.html',
     filename: 'index.html',
     inject: 'body'
-})
+});
+var webpack = require('webpack');
 
 module.exports = {
     devtool: 'source-map',
@@ -19,5 +20,13 @@ module.exports = {
             {test: /\.js$/, include: __dirname + '/app', loader: 'babel-loader'}
         ]
     },
-    plugins: [HtmlWebpackPluginConfig]
+    plugins: [
+        HtmlWebpackPluginConfig,
+            new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('production')
+            }
+        }),
+        new webpack.optimize.UglifyJsPlugin()
+    ]
 }
