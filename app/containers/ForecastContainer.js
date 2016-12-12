@@ -12,13 +12,9 @@ var ForecastContainer = React.createClass({
         isLoading: true
     }        
   },
-  componentDidMount: function(){
-    console.log(this.state.city);
-    console.log(this.state.isLoading);
-  },
   render: function(){
     return (
-      <Forecast />
+      <Forecast isLoading={this.state.isLoading}/>
     )
   }
 });
