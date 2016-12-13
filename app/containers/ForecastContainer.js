@@ -32,7 +32,7 @@ var ForecastContainer = React.createClass({
     return (
       <Forecast 
         isLoading={this.state.isLoading}
-        city={this.state.city}
+        forecast={this.state.forecast}
       />
     )
   }

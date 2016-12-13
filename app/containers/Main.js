@@ -3,7 +3,7 @@ var React = require('react');
 var Main = React.createClass({
     render: function(){
         return (
-            <div>
+            <div className='col-sm-12 text-center'>
                 {this.props.children}
             </div>   
         )

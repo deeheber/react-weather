@@ -1,18 +1,41 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
 
+// each day section
+function Day(props){
+  var icon = props.day.weather[0].icon;
+  var description = props.day.weather[0].description;
+  return (
+    <div className="col-md-4 col-xs-12">
+      <h3>{props.day.dt}</h3>
+      <img style={{height: 130 + 'px'}} src={'./app/images/weather-icons/' + icon + '.svg'}/>
+      <p>{description.toUpperCase()}</p>
+    </div>
+  )
+}
+
+// main forecast container
 function Forecast(props){
   if(props.isLoading){
     return (
       <div>
-        Forecast component loading is true
+        Loading...please wait.
       </div>
     );
   }
 
   return (
-    <div>
-      Forecast component loading is false {props.city}
+    <div className="container-fluid">
+      <h1>Five Day Forecast for {props.forecast.city.name}</h1>
+      <div className="row">
+      {
+        props.forecast.list.map(function(listItem){
+          return (
+            <Day day={listItem} />
+          )
+        })
+      }
+      </div>
     </div>
   )
 
@@ -20,7 +43,7 @@ function Forecast(props){
 
 Forecast.propTypes = {
   isLoading: PropTypes.bool.isRequired,
-  city: PropTypes.string.isRequired
+  forecast: PropTypes.object.isRequired
 };
 
 module.exports = Forecast;
