@@ -30,10 +30,15 @@ var ForecastContainer = React.createClass({
   },
   render: function(){
     return (
-      <Forecast 
-        isLoading={this.state.isLoading}
-        forecast={this.state.forecast}
-      />
+      <div>
+        <Forecast 
+          isLoading={this.state.isLoading}
+          forecast={this.state.forecast}
+        />
+        <div style={{margin: 3 + '%'}}>
+          <a href='/'>Back</a>
+        </div>
+      </div>
     )
   }
 });
