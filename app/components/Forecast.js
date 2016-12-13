@@ -2,10 +2,8 @@ var React = require('react');
 var PropTypes = React.PropTypes;
 var formatDate = require('../utils/date');
 
-// each day section
 function Day(props){
   var icon = props.day.weather[0].icon;
-  var description = props.day.weather[0].description;
   var date = formatDate(props.day.dt);
 
   return (
@@ -16,7 +14,6 @@ function Day(props){
   )
 }
 
-// main forecast container
 function Forecast(props){
   if(props.isLoading){
     return (
