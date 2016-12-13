@@ -1,15 +1,18 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
+var formatDate = require('../utils/date');
 
 // each day section
 function Day(props){
   var icon = props.day.weather[0].icon;
   var description = props.day.weather[0].description;
+  var date = formatDate(props.day.dt);
+
   return (
     <div className="col-md-4 col-xs-12">
-      <h3>{props.day.dt}</h3>
+      <h2>{date}</h2>
       <img style={{height: 130 + 'px'}} src={'./app/images/weather-icons/' + icon + '.svg'}/>
-      <p>{description.toUpperCase()}</p>
+      <h3 className='text-capitalize'>{description}</h3>
     </div>
   )
 }
