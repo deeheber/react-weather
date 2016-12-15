@@ -1,9 +1,4 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-    template: __dirname + '/app/index.html',
-    filename: 'index.html',
-    inject: 'body'
-});
 var webpack = require('webpack');
 
 module.exports = {
@@ -17,16 +12,32 @@ module.exports = {
     },
     module: {
         loaders: [
-            {test: /\.js$/, include: __dirname + '/app', loader: 'babel-loader'}
+          {
+            test: /\.js$/, 
+            include: __dirname + '/app', 
+            loader: 'babel-loader',
+            query: {
+              presets: ['es2015'],
+              cacheDirectory: true
+            }
+          },
+          {
+            test: /\.css$/, 
+            loader: 'style-loader!css-loader'
+          }
         ]
     },
     plugins: [
-        HtmlWebpackPluginConfig,
-            new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: JSON.stringify('production')
-            }
-        }),
-        new webpack.optimize.UglifyJsPlugin()
+      new HtmlWebpackPlugin({
+          template: __dirname + '/app/index.html',
+          filename: 'index.html',
+          inject: 'body'
+      }),
+      new webpack.DefinePlugin({
+        'process.env': {
+            NODE_ENV: JSON.stringify('production')
+        }
+      }),
+      new webpack.optimize.UglifyJsPlugin()
     ]
 }
