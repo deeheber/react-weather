@@ -11,8 +11,9 @@ function Detail(props){
   var description = props.weather.weather[0].description;
   var minTemp = props.weather.temp.min;
   var maxTemp = props.weather.temp.max;
+
   return (
-    <div>
+    <div className='topSpace'>
       <img className='icon' src={'./app/images/weather-icons/' + icon + '.svg'}/>
       <h1 className='text-capitalize'>{props.city}</h1>
       <h2>{date}</h2>
