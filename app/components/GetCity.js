@@ -8,7 +8,7 @@ function GetCity(props){
                 <input className='form-control input-md' placeholder='Enter a City and State' type='text' value={props.city} onChange={props.onUpdateCity} />
             </div>
             <div className='col-sm-12 submitButton'>
-                <button className='btn btn-info btn-md' type='submit'>Get Weather</button>
+                <button className='btn blueBackground btn-md' type='submit'>Get Weather</button>
             </div>    
         </form>
     )

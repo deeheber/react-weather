@@ -17,3 +17,13 @@
 .topSpace{
   margin-top: 2%
 }
+
+.blueBackground {
+  background-color: rgb(140, 163, 178);
+  color: white;
+}
+
+a {
+  color: rgb(140, 163, 178);
+  font-size: 1.5em;
+}
