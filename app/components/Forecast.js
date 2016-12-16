@@ -8,7 +8,7 @@ function Day(props){
 
   return (
     <div className="col-md-4 col-xs-12">
-      <img className='icon' src={'./app/images/weather-icons/' + icon + '.svg'}/>
+      <img onClick={props.handleClick} className='icon' src={'./app/images/weather-icons/' + icon + '.svg'}/>
       <p className='lead'>{date}</p>
     </div>
   )
@@ -30,7 +30,7 @@ function Forecast(props){
       {
         props.forecast.list.map(function(listItem){
           return (
-            <Day day={listItem} />
+            <Day day={listItem} handleClick={props.handleClick.bind(null, listItem)}/>
           )
         })
       }
@@ -42,7 +42,8 @@ function Forecast(props){
 
 Forecast.propTypes = {
   isLoading: PropTypes.bool.isRequired,
-  forecast: PropTypes.object.isRequired
+  forecast: PropTypes.object.isRequired,
+  handleClick: PropTypes.func.isRequired
 };
 
 module.exports = Forecast;

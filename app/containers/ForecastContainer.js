@@ -28,12 +28,22 @@ var ForecastContainer = React.createClass({
         console.log(err);
       });
   },
+  handleClick: function(dailyWeather){
+    //console.log(weather);
+    this.context.router.push({
+      pathname: '/detail/' + this.state.city,
+      state:{
+        weather: dailyWeather
+      }
+    });
+  },
   render: function(){
     return (
       <div>
         <Forecast 
           isLoading={this.state.isLoading}
           forecast={this.state.forecast}
+          handleClick={this.handleClick}
         />
         <div className='back'>
           <a href='/'>Back</a>
