@@ -35,7 +35,7 @@ var ForecastContainer = React.createClass({
           isLoading={this.state.isLoading}
           forecast={this.state.forecast}
         />
-        <div style={{margin: 3 + '%'}}>
+        <div className='back'>
           <a href='/'>Back</a>
         </div>
       </div>

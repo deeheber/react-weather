@@ -8,7 +8,7 @@ function Day(props){
 
   return (
     <div className="col-md-4 col-xs-12">
-      <img style={{height: 130 + 'px'}} src={'./app/images/weather-icons/' + icon + '.svg'}/>
+      <img className='icon' src={'./app/images/weather-icons/' + icon + '.svg'}/>
       <p className='lead'>{date}</p>
     </div>
   )

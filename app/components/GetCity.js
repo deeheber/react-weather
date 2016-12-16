@@ -1,15 +1,13 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
 
-//TODO: refactor inline style for margin later
-
 function GetCity(props){
     return (
         <form onSubmit={props.onSubmitCity}>
             <div className='col-sm-6 col-sm-offset-3' >
                 <input className='form-control input-md' placeholder='Enter a City and State' type='text' value={props.city} onChange={props.onUpdateCity} />
             </div>
-            <div className='col-sm-12' style={{marginTop: '5px'}}>
+            <div className='col-sm-12 submitButton'>
                 <button className='btn btn-info btn-md' type='submit'>Get Weather</button>
             </div>    
         </form>
