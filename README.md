@@ -6,7 +6,6 @@
 Retrieves weather info when entering a city/state. Utilizes the Open Weather Map API for data. 
 
 ## Coming soon
-- Five day forecast view
 - Daily forecast view
 
 ## To run locally
