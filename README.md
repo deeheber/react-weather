@@ -3,10 +3,9 @@
 **Currently in progress**
 
 ## Summary
-Retrieves weather info when entering a city/state. Utilizes the Open Weather Map API for data. 
+Retrieves weather info when entering a city/state. Utilizes the Open Weather Map API for data.  
 
-## Coming soon
-- Daily forecast view
+Available views: 5 day forecast and detailed daily view.
 
 ## To run locally
 1. Clone the repo
