@@ -1,7 +1,6 @@
-var moment = require('moment');
+import moment from 'moment';
 
-function format(date){
+export default function format(date){
   return moment.unix(date).format('ddd MMM Do');
 }
 
-module.exports = format;

@@ -1,6 +1,6 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
-var formatDate = require('../utils/date');
+import formatDate from '../utils/date';
 
 function Day(props){
   var icon = props.day.weather[0].icon;

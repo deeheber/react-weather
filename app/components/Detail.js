@@ -2,8 +2,8 @@ var React = require('react');
 var ReactRouter = require('react-router');
 var browserHistory = ReactRouter.browserHistory;
 var PropTypes = React.PropTypes;
-var formatDate = require('../utils/date');
-var formatTemp = require('../utils/temp');
+import formatDate from '../utils/date';
+import formatTemp from '../utils/temp';
 
 function Detail(props){
 

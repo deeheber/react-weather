@@ -1,7 +1,7 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
 var Forecast = require('../components/Forecast');
-var getForecast = require('../utils/api').getForecast;
+import getForecast from '../utils/api';
 
 var ForecastContainer = React.createClass({
   contextTypes: {
