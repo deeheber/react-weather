@@ -1,7 +1,6 @@
-var React = require('react');
-var PropTypes = React.PropTypes;
+import React, {PropTypes} from 'react';
 
-function GetCity(props){
+export default function GetCity(props){
     return (
         <form onSubmit={props.onSubmitCity}>
             <div className='col-sm-6 col-sm-offset-3' >
@@ -19,5 +18,3 @@ GetCity.propTypes = {
     onUpdateCity: PropTypes.func.isRequired,
     onSubmitCity: PropTypes.func.isRequired
 };
-
-module.exports = GetCity;
