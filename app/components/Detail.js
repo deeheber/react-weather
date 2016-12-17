@@ -1,18 +1,15 @@
-var React = require('react');
-var ReactRouter = require('react-router');
-var browserHistory = ReactRouter.browserHistory;
-var PropTypes = React.PropTypes;
-var formatDate = require('../utils/date');
-var formatTemp = require('../utils/temp');
+import React, {PropTypes} from 'react';
+import ReactRouter, {browserHistory} from 'react-router';
+import formatDate from '../utils/date';
+import formatTemp from '../utils/temp';
 
-function Detail(props){
-
-  var icon = props.weather.weather[0].icon;
-  var imageURL = require('../images/weather-icons/' + icon + '.svg');
-  var date = formatDate(props.weather.dt);
-  var description = props.weather.weather[0].description;
-  var minTemp = formatTemp(props.weather.temp.min);
-  var maxTemp = formatTemp(props.weather.temp.max);
+export default function Detail(props){
+  const icon = props.weather.weather[0].icon;
+  const imageURL = require('../images/weather-icons/' + icon + '.svg');
+  const date = formatDate(props.weather.dt);
+  const description = props.weather.weather[0].description;
+  const minTemp = formatTemp(props.weather.temp.min);
+  const maxTemp = formatTemp(props.weather.temp.max);
 
   return (
     <div className='topSpace'>
@@ -33,5 +30,3 @@ Detail.propTypes = {
   weather: PropTypes.object.isRequired,
   city: PropTypes.string.isRequired
 };
-
-module.exports = Detail;

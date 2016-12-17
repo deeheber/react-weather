@@ -1,11 +1,10 @@
-var React = require('react');
-var PropTypes = React.PropTypes;
-var formatDate = require('../utils/date');
+import React, {PropTypes} from 'react';
+import formatDate from '../utils/date';
 
 function Day(props){
-  var icon = props.day.weather[0].icon;
-  var imageURL = require('../images/weather-icons/' + icon + '.svg');
-  var date = formatDate(props.day.dt);
+  const icon = props.day.weather[0].icon;
+  const imageURL = require('../images/weather-icons/' + icon + '.svg');
+  const date = formatDate(props.day.dt);
 
   return (
     <div className="col-md-4 col-xs-12">
@@ -15,7 +14,7 @@ function Day(props){
   )
 }
 
-function Forecast(props){
+export default function Forecast(props){
   if(props.isLoading){
     return (
       <div>
@@ -38,7 +37,6 @@ function Forecast(props){
       </div>
     </div>
   )
-
 }
 
 Forecast.propTypes = {
@@ -46,5 +44,3 @@ Forecast.propTypes = {
   forecast: PropTypes.object.isRequired,
   handleClick: PropTypes.func.isRequired
 };
-
-module.exports = Forecast;

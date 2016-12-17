@@ -1,13 +1,11 @@
-var React = require('react');
+import React, {Component} from 'react';
 
-var Main = React.createClass({
-    render: function(){
-        return (
-            <div className='col-sm-12 text-center'>
-                {this.props.children}
-            </div>   
-        )
-    }
-});
-
-module.exports = Main;
+export default class Main extends Component {
+  render(){
+    return (
+      <div className='col-sm-12 text-center'>
+          {this.props.children}
+      </div>   
+    )
+  }
+}
