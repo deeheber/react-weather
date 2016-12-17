@@ -1,21 +1,17 @@
-var React = require('react');
-var PropTypes = React.PropTypes;
-var Forecast = require('../components/Forecast');
+import React, {Component} from 'react';
+import Forecast from '../components/Forecast';
 import getForecast from '../utils/api';
 
-var ForecastContainer = React.createClass({
-  contextTypes: {
-      router: React.PropTypes.object.isRequired
-  },
-  getInitialState: function(){
-    return {
-        city: this.props.routeParams.city,
-        isLoading: true,
-        forecast: {}
-    }        
-  },
-  componentWillMount: function(){
-    getForecast(this.state.city)
+export default class ForecastContainer extends Component{
+  constructor(){
+    super();
+    this.state = {
+      isLoading: true,
+      forecast: {}
+    };
+  }
+  componentWillMount(){
+    getForecast(this.props.routeParams.city)
       .then(function(forecastData){
         this.setState({
           forecast: forecastData,
@@ -26,23 +22,23 @@ var ForecastContainer = React.createClass({
         alert(err);
         this.context.router.push('/');
       }.bind(this));
-  },
-  handleClick: function(dailyWeather){
+  }
+  handleClick(dailyWeather){
     this.context.router.push({
-      pathname: '/detail/' + this.state.city,
+      pathname: '/detail/' + this.props.routeParams.city,
       state:{
         weather: dailyWeather,
-        city: this.state.city
+        city: this.props.routeParams.city
       }
     });
-  },
-  render: function(){
+  }
+  render(){
     return (
       <div>
         <Forecast 
           isLoading={this.state.isLoading}
           forecast={this.state.forecast}
-          handleClick={this.handleClick}
+          handleClick={dailyWeather=>this.handleClick(dailyWeather)}
         />
         <div className='back'>
           <a href='/'>Back</a>
@@ -50,6 +46,8 @@ var ForecastContainer = React.createClass({
       </div>
     )
   }
-});
+}
 
-module.exports = ForecastContainer;
+ForecastContainer.contextTypes = {
+  router: React.PropTypes.object.isRequired
+};

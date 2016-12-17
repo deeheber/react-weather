@@ -21,8 +21,8 @@ export default class GetCityContainer extends Component {
         return (
             <GetCity 
                 city={this.state.city}
-                onUpdateCity={(e) => this.handleUpdateCity(e)}
-                onSubmitCity={(e) => this.handleSubmitCity(e)}
+                onUpdateCity={e=>this.handleUpdateCity(e)}
+                onSubmitCity={e=>this.handleSubmitCity(e)}
             />
         )
     }
