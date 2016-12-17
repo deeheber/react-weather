@@ -12,16 +12,16 @@ export default class ForecastContainer extends Component{
   }
   componentWillMount(){
     getForecast(this.props.routeParams.city)
-      .then(function(forecastData){
+      .then(forecastData=>{
         this.setState({
           forecast: forecastData,
           isLoading: false
         });
-      }.bind(this))
-      .catch(function(err){
+      })
+      .catch(err=>{
         alert(err);
         this.context.router.push('/');
-      }.bind(this));
+      });
   }
   handleClick(dailyWeather){
     this.context.router.push({
