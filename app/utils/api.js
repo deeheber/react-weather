@@ -2,7 +2,6 @@ var axios = require('axios');
 var apiKey = require('./apiKey');
 
 function getCurrentWeather(location){
-    //TODO seperate out creating the URl in a seperate function
     var url = 'http://api.openweathermap.org/data/2.5/weather?q='+location+'&type=accurate&APPID='+apiKey;
 
     return axios.get(url)
@@ -13,7 +12,6 @@ function getCurrentWeather(location){
 
 // 5 day forecast
 function getForecast(location){
-    //TODO seperate out creating the URl in a seperate function
     var url = 'http://api.openweathermap.org/data/2.5/forecast/daily?q='+location+'&type=accurate&APPID='+apiKey+'&cnt=5';
 
     return axios.get(url)

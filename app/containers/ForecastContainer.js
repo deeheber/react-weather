@@ -14,7 +14,7 @@ var ForecastContainer = React.createClass({
         forecast: {}
     }        
   },
-  componentDidMount: function(){
+  componentWillMount: function(){
     getForecast(this.state.city)
       .then(function(forecastData){
         this.setState({
@@ -23,9 +23,9 @@ var ForecastContainer = React.createClass({
         });
       }.bind(this))
       .catch(function(err){
-        //TODO add error messages to the UI
-        console.log(err);
-      });
+        alert(err);
+        this.context.router.push('/');
+      }.bind(this));
   },
   handleClick: function(dailyWeather){
     this.context.router.push({
