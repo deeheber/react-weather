@@ -1,11 +1,9 @@
-var React = require('react');
-var ReactRouter = require('react-router');
-var browserHistory = ReactRouter.browserHistory;
-var PropTypes = React.PropTypes;
+import React, {PropTypes} from 'react';
+import ReactRouter, {browserHistory} from 'react-router';
 import formatDate from '../utils/date';
 import formatTemp from '../utils/temp';
 
-function Detail(props){
+export default function Detail(props){
 
   var icon = props.weather.weather[0].icon;
   var imageURL = require('../images/weather-icons/' + icon + '.svg');
@@ -33,5 +31,3 @@ Detail.propTypes = {
   weather: PropTypes.object.isRequired,
   city: PropTypes.string.isRequired
 };
-
-module.exports = Detail;
