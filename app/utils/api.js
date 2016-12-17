@@ -1,5 +1,5 @@
 var axios = require('axios');
-var apiKey = require('./apiKey');
+var apiKey = process.env.KEY || require('./apiKey');
 
 function getCurrentWeather(location){
     var url = 'http://api.openweathermap.org/data/2.5/weather?q='+location+'&type=accurate&APPID='+apiKey;
