@@ -8,6 +8,7 @@ var formatTemp = require('../utils/temp');
 function Detail(props){
 
   var icon = props.weather.weather[0].icon;
+  var imageURL = require('../images/weather-icons/' + icon + '.svg');
   var date = formatDate(props.weather.dt);
   var description = props.weather.weather[0].description;
   var minTemp = formatTemp(props.weather.temp.min);
@@ -15,7 +16,7 @@ function Detail(props){
 
   return (
     <div className='topSpace'>
-      <img className='icon' src={'./app/images/weather-icons/' + icon + '.svg'}/>
+      <img className='icon' src={imageURL}/>
       <h1 className='text-capitalize'>{props.city}</h1>
         <h2>{date}</h2>
           <h3 className='text-capitalize'>{description}</h3>

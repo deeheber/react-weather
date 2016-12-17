@@ -38,6 +38,10 @@ module.exports = {
           {
             test: /\.css$/, 
             loader: ExtractTextPlugin.extract('style!', 'css?sourceMap')
+          },
+          { 
+            test: /\.svg$/, 
+            loader: 'file' 
           }
         ]
     }

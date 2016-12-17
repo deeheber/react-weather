@@ -4,11 +4,12 @@ var formatDate = require('../utils/date');
 
 function Day(props){
   var icon = props.day.weather[0].icon;
+  var imageURL = require('../images/weather-icons/' + icon + '.svg');
   var date = formatDate(props.day.dt);
 
   return (
     <div className="col-md-4 col-xs-12">
-      <img onClick={props.handleClick} className='icon pointer' src={'./app/images/weather-icons/' + icon + '.svg'}/>
+      <img onClick={props.handleClick} className='icon pointer' src={imageURL}/>
       <p className='lead'>{date}</p>
     </div>
   )
